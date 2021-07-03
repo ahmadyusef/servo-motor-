@@ -1,0 +1,55 @@
+#include <Servo.h>
+
+int set = 0;
+
+int sensorvalue = 0;
+
+int outputvalue = 0;
+
+Servo servo_9;
+
+Servo servo_10;
+
+Servo servo_11;
+
+Servo servo_12;
+
+Servo servo_13;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  servo_9.attach(9, 500, 2500);
+
+  pinMode(A1, INPUT);
+  servo_10.attach(10, 500, 2500);
+
+  pinMode(A2, INPUT);
+  servo_11.attach(11, 500, 2500);
+
+  pinMode(A3, INPUT);
+  servo_12.attach(12, 500, 2500);
+
+  pinMode(A4, INPUT);
+  servo_13.attach(13, 500, 2500);
+
+}
+
+void loop()
+{
+  sensorvalue = analogRead(A0);
+  outputvalue = map(sensorvalue, 0, 1023, 0, 90);
+  servo_9.write(outputvalue);
+  sensorvalue = analogRead(A1);
+  outputvalue = map(sensorvalue, 0, 1023, 0, 90);
+  servo_10.write(outputvalue);
+  sensorvalue = analogRead(A2);
+  outputvalue = map(sensorvalue, 0, 1023, 0, 90);
+  servo_11.write(outputvalue);
+  sensorvalue = analogRead(A3);
+  outputvalue = map(sensorvalue, 0, 1023, 0, 90);
+  servo_12.write(outputvalue);
+  sensorvalue = analogRead(A4);
+  outputvalue = map(sensorvalue, 0, 1023, 0, 90);
+  servo_13.write(outputvalue);
+  delay(10); // Delay a little bit to improve simulation performance
